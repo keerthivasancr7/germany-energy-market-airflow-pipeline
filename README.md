@@ -73,6 +73,12 @@ docker compose up airflow-init
 docker compose up
 ```
 
+For a one-off CLI verification run:
+
+```bash
+docker compose exec airflow-scheduler airflow dags test german_energy_market_pipeline 2026-07-16
+```
+
 Then open Airflow:
 
 ```text
@@ -90,14 +96,15 @@ german_energy_market_pipeline
 
 ## Verified pipeline metrics
 
-Latest local verification:
+Latest verification:
 
 - Raw rows loaded: **9,731**
 - Germany historical records: **61 years**
 - Latest year available: **2025**
 - Latest total renewable generation: **295.74 TWh**
 - Data quality checks: **passed**
-- Local runtime: about **1 second**
+- Local runtime without Airflow: about **1 second**
+- Docker/Airflow DAG test: **passed**
 
 ## Warehouse tables
 
