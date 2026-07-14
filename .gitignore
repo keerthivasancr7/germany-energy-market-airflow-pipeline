@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+logs/
+plugins/
+airflow.db
+standalone_admin_password.txt
+data/raw/*.csv
+data/raw/*.json
+data/warehouse/*.duckdb
+.DS_Store
