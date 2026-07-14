@@ -87,6 +87,18 @@ Trigger DAG:
 german_energy_market_pipeline
 ```
 
+
+## Verified pipeline metrics
+
+Latest local verification:
+
+- Raw rows loaded: **9,731**
+- Germany historical records: **61 years**
+- Latest year available: **2025**
+- Latest total renewable generation: **295.74 TWh**
+- Data quality checks: **passed**
+- Local runtime: about **1 second**
+
 ## Warehouse tables
 
 - `raw_renewable_generation`
