@@ -1,0 +1,15 @@
+{
+  "raw_file": "/Users/keerthivasan/.openclaw/workspace/german-energy-market-airflow-pipeline/data/raw/modern-renewable-energy-consumption.csv",
+  "loaded_rows": 9731,
+  "runtime_seconds": 0.92,
+  "raw_rows": 9731,
+  "germany_years": 61,
+  "latest_year": 2025,
+  "latest_total_renewable_twh": 295.74,
+  "quality_checks": {
+    "duplicate_years": 0,
+    "null_years": 0,
+    "negative_generation_values": 0,
+    "mart_rows": 61
+  }
+}

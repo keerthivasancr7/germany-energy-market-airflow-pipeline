@@ -3,10 +3,10 @@ SELECT
     Entity AS country,
     Code AS country_code,
     Year AS year,
-    "Geo Biomass Other - TWh" AS bioenergy_twh,
-    "Solar Generation - TWh" AS solar_twh,
-    "Wind Generation - TWh" AS wind_twh,
-    "Hydro Generation - TWh" AS hydro_twh
+    "Bioenergy and other renewables" AS bioenergy_twh,
+    "Solar" AS solar_twh,
+    "Wind" AS wind_twh,
+    "Hydropower" AS hydro_twh
 FROM raw_renewable_generation
 WHERE Entity = 'Germany';
 
