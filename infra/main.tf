@@ -109,13 +109,14 @@ resource "aws_cloudwatch_log_group" "glue" {
 }
 
 resource "aws_glue_job" "energy" {
-  name         = var.job_name
-  role_arn     = aws_iam_role.glue.arn
-  glue_version = "3.0"
-  max_capacity = 0.0625
-  max_retries  = 0
-  timeout      = 5
-  connections  = []
+  name            = var.job_name
+  role_arn        = aws_iam_role.glue.arn
+  glue_version    = "3.0"
+  execution_class = "STANDARD"
+  max_capacity    = 0.0625
+  max_retries     = 0
+  timeout         = 5
+  connections     = []
   command {
     name            = "pythonshell"
     python_version  = "3.9"
@@ -125,10 +126,12 @@ resource "aws_glue_job" "energy" {
     max_concurrent_runs = 1
   }
   default_arguments = {
-    "--job-language"              = "python"
-    "--library-set"               = "analytics"
-    "--additional-python-modules" = "duckdb==1.4.3"
-    "--TempDir"                   = "s3://${aws_s3_bucket.pipeline.id}/temp/"
+    "--job-language"                 = "python"
+    "library-set"                    = "analytics"
+    "--enable-job-insights"          = "false"
+    "--enable-observability-metrics" = "false"
+    "--additional-python-modules"    = "duckdb==1.4.3"
+    "--TempDir"                      = "s3://${aws_s3_bucket.pipeline.id}/temp/"
   }
   depends_on = [aws_iam_role_policy.project_s3, aws_iam_role_policy_attachment.glue_service, aws_cloudwatch_log_group.glue]
   lifecycle {

@@ -24,6 +24,10 @@ run "cost_and_access_boundaries" {
     error_message = "Do not start overlapping Glue runs."
   }
   assert {
+    condition     = aws_glue_job.energy.default_arguments["library-set"] == "analytics" && !contains(keys(aws_glue_job.energy.default_arguments), "--library-set")
+    error_message = "Python Shell expects library-set without a leading double dash."
+  }
+  assert {
     condition     = aws_athena_workgroup.energy.configuration[0].bytes_scanned_cutoff_per_query == 10485760
     error_message = "Athena needs its per-query scan limit."
   }
