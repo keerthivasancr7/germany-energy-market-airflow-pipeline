@@ -13,7 +13,7 @@ See the [AWS setup, evidence, Terraform adoption, and CI/CD guide](docs/aws-upgr
 - `.github/workflows/`: offline regression CI and opt-in, OIDC-based script deployment. CD does not start jobs.
 - `docs/evidence/aws/`: downloaded metrics from the demonstrated AWS run.
 
-**Status:** manual AWS execution and Athena query results are evidenced. Terraform/cloud access and hosted CI/CD still need live configuration and verification. The prepared code is not evidence that those steps have already run. No production operation or streaming is claimed.
+**Status:** manual AWS execution, Athena queries, hosted GitHub Actions CI, and Terraform adoption are verified. On 29 October 2026, Terraform imported 15 resources, created the Athena workgroup, updated four metadata configurations, and deleted none; a follow-up plan reported no changes. [Adoption evidence](docs/evidence/aws/adoption-apply-2026-10-29.md). Automatic AWS script deployment remains disabled and unverified. No production operation or streaming is claimed.
 
 ## Problem
 

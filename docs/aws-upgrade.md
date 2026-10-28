@@ -6,7 +6,7 @@ On 28 October 2026 the author manually deployed the Energy Pipeline in Frankfurt
 
 The downloaded [AWS-generated metrics](evidence/aws/pipeline_metrics-2026-10-28.json) match the raw CSV SHA256 and report 10,582 source rows, 61 Germany records, no duplicate years, and 2025 renewable generation of 295.74 TWh. Output counts are 61 fact rows, 61 trend rows, and four latest-mix rows. Screenshots show Athena reading 2025 values of 136.03 wind, 89.62 solar, 50.53 bioenergy/other, and 19.56 hydro TWh, and year-over-year change of 4.88 TWh (1.68%). These are demonstrated portfolio results, not a production SLA or benchmark.
 
-Terraform and GitHub workflows have been prepared locally. They are **not yet applied/enabled or demonstrated on GitHub**. Local tests and mock plans must not be described as actual AWS deployment by Terraform or a successful GitHub Actions run.
+Terraform adoption and hosted GitHub Actions CI are now verified. On 29 October 2026, the reviewed plan imported 15 resources, added the dedicated Athena workgroup, updated four metadata configurations, and destroyed none. A follow-up live plan exited 0 with no changes. See the [apply evidence](evidence/aws/adoption-apply-2026-10-29.md). Automatic AWS script deployment remains disabled; the optional OIDC role has not been created.
 
 ## Architecture
 

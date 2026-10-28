@@ -20,4 +20,6 @@ Verified metrics from the earlier local snapshot:
 
 The AWS snapshot and original local snapshot have different raw row counts. Use the count matching the execution being described. The latest-year energy mix is the mix of the modeled renewable sources, not Germany's entire electricity mix.
 
-Terraform and GitHub Actions files are prepared and locally validated. Add claims of deployed infrastructure or working CI/CD only after live adoption and successful hosted workflow runs.
+- Adopted an existing AWS batch pipeline with Terraform and verified a clean follow-up plan; added GitHub Actions CI for Python regression tests and Terraform validation.
+
+Terraform adoption and hosted CI were verified on 29 October 2026. Automatic AWS deployment remains disabled and has not been demonstrated; describe this as CI rather than completed CI/CD.
