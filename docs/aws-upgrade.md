@@ -102,9 +102,9 @@ Wait for actual successful Actions checks before listing CI as demonstrated. Con
 ## Enable CD only after CI works
 
 1. Create a GitHub environment named `aws-deploy`, restrict deployment branches to `main`, and enable a required reviewer if supported for the repository/plan.
-2. Confirm the GitHub OIDC provider exists in the correct AWS account. Do not create a duplicate or grant access to another provider. No OIDC provider is created by this Terraform.
+2. Confirm the GitHub OIDC provider exists in the correct AWS account. Do not create a duplicate or grant access to another provider. Provider creation is disabled by default; set `create_github_oidc_provider=true` only when the account inventory confirms none exists.
 3. Verify the exact `sub` claim for this repository and environment. GitHub now uses an immutable owner/repository-ID form for some repositories; do not guess which applies. Use one exact subject, never a wildcard.
-4. Set the verified provider ARN and subject in the ignored Terraform variables; set `enable_github_deploy=true`. Review the role's trust and script-only S3 permissions before applying that change.
+4. Set the verified provider ARN and subject in the ignored Terraform variables; set `enable_github_deploy=true` (and explicitly opt in to provider creation only if missing). Review the role's trust and script-only S3 permissions before applying that change.
 5. The optional role can only get/put `scripts/germany-energy-cloud-pipeline.py`. It cannot start Glue jobs, change IAM, deploy infrastructure, or modify data prefixes.
 6. Set repository variables: `AWS_DEPLOY_ROLE_ARN` from Terraform output, `ENERGY_BUCKET` to the project bucket, and finally `AWS_DEPLOY_ENABLED` to `true`. The enable flag is a repository variable because the workflow tests it before entering the environment.
 7. Merge a tested script change or dispatch the deployment workflow on main. The workflow repeats tests, obtains temporary OIDC credentials, uploads the script, and reads it back to verify SHA256. It does not run Glue or Athena.

@@ -69,3 +69,16 @@ run "reject_wildcard_oidc_subject" {
   }
   expect_failures = [var.github_oidc_subject]
 }
+
+run "optional_provider_is_github_sts_only" {
+  command = plan
+  variables {
+    enable_github_deploy        = true
+    create_github_oidc_provider = true
+    github_oidc_subject         = "repo:keerthivasancr7@194722354/germany-energy-market-airflow-pipeline@1301010525:environment:aws-deploy"
+  }
+  assert {
+    condition     = aws_iam_openid_connect_provider.github[0].url == "https://token.actions.githubusercontent.com" && toset(aws_iam_openid_connect_provider.github[0].client_id_list) == toset(["sts.amazonaws.com"])
+    error_message = "The optional provider must accept only GitHub identity tokens for AWS STS."
+  }
+}

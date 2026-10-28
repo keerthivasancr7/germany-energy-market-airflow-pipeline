@@ -55,6 +55,12 @@ variable "github_oidc_provider_arn" {
   description = "Existing IAM OIDC provider ARN for token.actions.githubusercontent.com. Not created automatically."
 }
 
+variable "create_github_oidc_provider" {
+  type        = bool
+  default     = false
+  description = "Opt in only after confirming no GitHub OIDC provider already exists in this AWS account."
+}
+
 variable "github_oidc_subject" {
   type        = string
   default     = null
