@@ -2,6 +2,19 @@
 
 A portfolio-grade data engineering project that uses Airflow, Docker, Python, DuckDB, and SQL to transform public renewable electricity data into analytics-ready tables for Germany.
 
+## AWS cloud upgrade
+
+The pipeline also has a manually demonstrated AWS deployment: **S3 raw CSV -> Glue Python Shell -> three Parquet datasets -> Athena SQL**, with CloudWatch output/error logs. On 28 October 2026, the downloaded AWS metrics recorded **10,582 source rows**, **61 Germany records**, **2025 total 295.74 TWh**, and passing quality checks. These are separate from the older local metrics below.
+
+See the [AWS setup, evidence, Terraform adoption, and CI/CD guide](docs/aws-upgrade.md).
+
+- `cloud/`: self-contained Glue script and Athena SQL.
+- `infra/`: Terraform configuration to import the existing resources, with a five-minute Glue timeout, 1/16 DPU, and seven-day logs. It proposes a dedicated Athena workgroup with a 10 MiB query scan limit.
+- `.github/workflows/`: offline regression CI and opt-in, OIDC-based script deployment. CD does not start jobs.
+- `docs/evidence/aws/`: downloaded metrics from the demonstrated AWS run.
+
+**Status:** manual AWS execution and Athena query results are evidenced. Terraform/cloud access and hosted CI/CD still need live configuration and verification. The prepared code is not evidence that those steps have already run. No production operation or streaming is claimed.
+
 ## Problem
 
 Energy-market datasets are often raw, wide, and not ready for analysis. Analysts need repeatable pipelines that extract public data, load it into a warehouse, transform it into clean marts, and validate quality before reporting.

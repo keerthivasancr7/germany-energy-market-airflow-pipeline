@@ -1,0 +1,7 @@
+# Copy to terraform.tfvars (ignored by Git) and enter your account ID.
+aws_account_id = "YOUR_12_DIGIT_ACCOUNT_ID"
+aws_region     = "eu-central-1"
+adopt_existing = true
+
+# Keep false until the exact GitHub OIDC subject and provider are confirmed.
+enable_github_deploy = false

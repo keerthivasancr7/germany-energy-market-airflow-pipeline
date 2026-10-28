@@ -1,0 +1,2 @@
+# AWS Glue Python Shell provides boto3. Install only DuckDB in the Glue job.
+duckdb==1.4.3

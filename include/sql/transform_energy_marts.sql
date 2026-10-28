@@ -7,7 +7,7 @@ SELECT
     "Solar" AS solar_twh,
     "Wind" AS wind_twh,
     "Hydropower" AS hydro_twh
-FROM raw_renewable_generation
+FROM renewable_generation_input
 WHERE Entity = 'Germany';
 
 CREATE OR REPLACE TABLE fact_germany_renewable_generation AS

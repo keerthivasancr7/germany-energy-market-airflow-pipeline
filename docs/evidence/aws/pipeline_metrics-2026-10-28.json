@@ -1,0 +1,17 @@
+{
+  "source_s3_uri": "s3://keerthivasan-energy-pipeline-20261028/raw/modern-renewable-energy-consumption.csv",
+  "source_sha256": "07b5e38e08d231f941920700694e96d357dd6e6177f8ce2544dfa4258973a664",
+  "raw_rows": 10582,
+  "germany_years": 61,
+  "latest_year": 2025,
+  "latest_total_renewable_twh": 295.74,
+  "duplicate_years": 0,
+  "quality_checks": "passed",
+  "generated_at_utc": "2026-10-28T21:40:26.058991+00:00",
+  "duckdb_version": "1.4.3",
+  "output_rows": {
+    "fact_germany_renewable_generation": 61,
+    "mart_germany_renewable_trends": 61,
+    "mart_germany_energy_mix_latest": 4
+  }
+}
