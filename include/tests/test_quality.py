@@ -1,7 +1,9 @@
 import unittest
+import os
 from include.src.run_pipeline import run_pipeline
 
 
+@unittest.skipUnless(os.environ.get("RUN_LIVE_TESTS") == "1", "Live OWID test is opt-in; offline regression tests run by default")
 class TestGermanEnergyPipeline(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
