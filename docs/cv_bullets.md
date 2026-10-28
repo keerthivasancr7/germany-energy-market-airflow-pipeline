@@ -22,4 +22,6 @@ The AWS snapshot and original local snapshot have different raw row counts. Use 
 
 - Adopted an existing AWS batch pipeline with Terraform and verified a clean follow-up plan; added GitHub Actions CI for Python regression tests and Terraform validation.
 
-Terraform adoption and hosted CI were verified on 29 October 2026. Automatic AWS deployment remains disabled and has not been demonstrated; describe this as CI rather than completed CI/CD.
+- Implemented GitHub Actions CI/CD with OIDC authentication, offline regression tests, Terraform validation, and checksum-verified deployment of a Glue script to S3 using a role restricted to one object.
+
+Terraform adoption, hosted CI, and a real OIDC deployment run were verified on 29 October 2026. The deployment publishes code; pipeline execution remains manual and unscheduled. Avoid claims of automated ETL scheduling, production reliability, or streaming.

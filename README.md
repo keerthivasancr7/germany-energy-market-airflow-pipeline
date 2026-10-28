@@ -13,7 +13,7 @@ See the [AWS setup, evidence, Terraform adoption, and CI/CD guide](docs/aws-upgr
 - `.github/workflows/`: offline regression CI and opt-in, OIDC-based script deployment. CD does not start jobs.
 - `docs/evidence/aws/`: downloaded metrics from the demonstrated AWS run.
 
-**Status:** manual AWS execution, Athena queries, hosted GitHub Actions CI, and Terraform adoption are verified. On 29 October 2026, Terraform imported 15 resources, created the Athena workgroup, updated four metadata configurations, and deleted none; a follow-up plan reported no changes. [Adoption evidence](docs/evidence/aws/adoption-apply-2026-10-29.md). Automatic AWS script deployment remains disabled and unverified. No production operation or streaming is claimed.
+**Status:** manual AWS execution, Athena queries, hosted GitHub Actions CI, Terraform adoption, and OIDC script deployment are verified. On 29 October 2026, Terraform imported 15 resources, created the Athena workgroup, updated four metadata configurations, and deleted none; a follow-up plan reported no changes. [Adoption evidence](docs/evidence/aws/adoption-apply-2026-10-29.md). The script-only deployment workflow is enabled and a manual run succeeded with checksum read-back verification. [Deployment evidence](docs/evidence/aws/github-deploy-verified-2026-10-29.md). It updates code without starting Glue jobs. No production operation or streaming is claimed.
 
 ## Problem
 
